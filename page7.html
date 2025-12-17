@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Songs for Abeeha — ❤️</title>
+  <style>
+    :root{
+      --bg: linear-gradient(180deg,#ffdfe9,#ffb6d9);
+      --card: rgba(255,255,255,0.95);
+      --pink1:#ff7ccf; --pink2:#ff4fa3; --accent:#ff2e86;
+      --text:#ca0287;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Poppins',system-ui,Arial;-webkit-font-smoothing:antialiased}
+    body{
+      background: var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      padding-bottom:60px;
+      overflow-x:hidden;
+    }
+
+    /* top controls */
+    .home-btn{
+      position:fixed;left:14px;top:14px;background:linear-gradient(90deg,var(--pink2),var(--pink1));
+      color:#fff;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700;z-index:999;
+      box-shadow:0 10px 30px rgba(255,0,119,0.12);display:inline-block;
+    }
+
+    .wrap{max-width:880px;margin:28px auto;padding:18px;position:relative;z-index:2}
+    .songs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:20px}
+    .song-card{background:var(--card);border-radius:14px;padding:18px;text-align:center;box-shadow:0 8px 30px rgba(255,0,119,0.08)}
+
+    .cover {
+      width:150px;height:150px;border-radius:12px;object-fit:cover;box-shadow:0 12px 40px rgba(0,0,0,0.12);display:block;margin:0 auto 10px;
+    }
+    .controls{ display:flex; gap:10px; justify-content:center; margin-top:8px; flex-wrap:wrap}
+    .btn{ padding:10px 16px; border-radius:10px; border:none; cursor:pointer; font-weight:700; color:#fff; }
+    .play-btn{ background: linear-gradient(90deg,var(--pink2),var(--pink1)); }
+    .pause-btn{ background:#ff2e86; display:none; }
+
+    /* hearts */
+    .hearts{pointer-events:none;position:fixed;inset:0;z-index:0;overflow:hidden}
+    .heart{position:absolute;font-size:16px;opacity:0.8;animation:float 6.5s linear infinite}
+    @keyframes float{0%{transform:translateY(110vh) scale(.7)}100%{transform:translateY(-20vh) scale(1)}}
+
+    @media (max-width:720px){
+      .cover{width:120px;height:120px}
+      .home-btn{left:10px;top:10px}
+      .wrap{padding:12px}
+    }
+  </style>
+</head>
+<body>
+
+  <a class="home-btn" href="index.html">⟵ Home</a>
+
+  <div class="wrap">
+    <div style="text-align:center;">
+      <h1>Songs for Abeeha</h1>
+      <div style="margin-bottom:20px;">Enjoy these special songs! ❤️</div>
+    </div>
+
+    <div class="songs-grid">
+
+    <!-- Jaane Na Dunga Mai song -->
+    <div class="song-card">
+      <img src="assets/images/jaanenadungamai.png" alt="Jaane Na Dunga Mai cover" class="cover" id="song1Cover" />
+      <div class="controls">
+        <button id="song1Play" class="btn play-btn">Play Jaane Na Dunga Mai ❤️</button>
+        <button id="song1Pause" class="btn pause-btn">Pause 💔</button>
+      </div>
+      <audio id="song1Audio" src="assets/images/music/JaaneNaDungaMai.mp3" preload="none"></audio>
+    </div>
+
+    <!-- Pooran Dooron song -->
+    <div class="song-card">
+      <img src="assets/images/poorandooron.png" alt="Pooran Dooron cover" class="cover" id="song2Cover" />
+      <div class="controls">
+        <button id="song2Play" class="btn play-btn">Play Pooran Dooron ❤️</button>
+        <button id="song2Pause" class="btn pause-btn">Pause 💔</button>
+      </div>
+      <audio id="song2Audio" src="assets/images/music/PooranDooron.mp3" preload="none"></audio>
+    </div>
+
+    <!-- KALANK song -->
+    <div class="song-card">
+      <img src="assets/images/kalank.png" alt="KALANK cover" class="cover" id="song3Cover" />
+      <div class="controls">
+        <button id="song3Play" class="btn play-btn">Play KALANK ❤️</button>
+        <button id="song3Pause" class="btn pause-btn">Pause 💔</button>
+      </div>
+      <audio id="song3Audio" src="assets/images/music/KALANK.mp3" preload="none"></audio>
+    </div>
+
+  </div>
+
+  <div style="text-align:center; margin:20px; color:#fff; font-size:1.1rem;">
+    Songs Sunkar Aa jao Madamm main wait kar rha hhu chat pe 🥱
+  </div>
+
+  <div class="hearts" id="heartLayer" aria-hidden="true"></div>
+
+<script>
+  // Jaane Na Dunga Mai controls
+  const song1Audio = document.getElementById('song1Audio');
+  const song1Play = document.getElementById('song1Play');
+  const song1Pause = document.getElementById('song1Pause');
+
+  song1Play.addEventListener('click', ()=>{
+    if(!song1Audio.src) song1Audio.src = 'assets/images/music/JaaneNaDungaMai.mp3';
+    song1Audio.play().catch(()=>{});
+    song1Play.style.display = 'none';
+    song1Pause.style.display = 'inline-block';
+  });
+  song1Pause.addEventListener('click', ()=>{
+    song1Audio.pause();
+    song1Pause.style.display = 'none';
+    song1Play.style.display = 'inline-block';
+  });
+
+  // Pooran Dooron controls
+  const song2Audio = document.getElementById('song2Audio');
+  const song2Play = document.getElementById('song2Play');
+  const song2Pause = document.getElementById('song2Pause');
+
+  song2Play.addEventListener('click', ()=>{
+    if(!song2Audio.src) song2Audio.src = 'assets/images/music/PooranDooron.mp3';
+    song2Audio.play().catch(()=>{});
+    song2Play.style.display = 'none';
+    song2Pause.style.display = 'inline-block';
+  });
+  song2Pause.addEventListener('click', ()=>{
+    song2Audio.pause();
+    song2Pause.style.display = 'none';
+    song2Play.style.display = 'inline-block';
+  });
+
+  // KALANK controls
+  const song3Audio = document.getElementById('song3Audio');
+  const song3Play = document.getElementById('song3Play');
+  const song3Pause = document.getElementById('song3Pause');
+
+  song3Play.addEventListener('click', ()=>{
+    if(!song3Audio.src) song3Audio.src = 'assets/images/music/KALANK.mp3';
+    song3Audio.play().catch(()=>{});
+    song3Play.style.display = 'none';
+    song3Pause.style.display = 'inline-block';
+  });
+  song3Pause.addEventListener('click', ()=>{
+    song3Audio.pause();
+    song3Pause.style.display = 'none';
+    song3Play.style.display = 'inline-block';
+  });
+
+  // Lightweight hearts
+  (function hearts(){
+    const layer = document.getElementById('heartLayer');
+    if(!layer) return;
+    function createHeart(){
+      const h = document.createElement('div');
+      h.className = 'heart';
+      h.innerText = '❤';
+      h.style.left = Math.random()*100 + 'vw';
+      h.style.fontSize = (12 + Math.random()*18) + 'px';
+      h.style.opacity = 0.45 + Math.random()*0.4;
+      h.style.animationDuration = (5 + Math.random()*4) + 's';
+      layer.appendChild(h);
+      setTimeout(()=> h.remove(), 9000);
+    }
+    // initial little sprinkling
+    for(let i=0;i<6;i++) setTimeout(createHeart, i*160);
+    setInterval(createHeart, 1200);
+  })();
+
+  // Pause audio on leave
+  window.addEventListener('pagehide', ()=> {
+    song1Audio.pause();
+    song2Audio.pause();
+    song3Audio.pause();
+  });
+  window.addEventListener('visibilitychange', ()=> {
+    if(document.hidden) {
+      song1Audio.pause();
+      song2Audio.pause();
+      song3Audio.pause();
+    }
+  });
+</script>
+</body>
+</html>

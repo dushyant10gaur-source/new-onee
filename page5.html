@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>A Letter For Abeeha — From Dushyant ❤️</title>
+  <style>
+    :root{
+      --bg: linear-gradient(180deg,#ff92ce,#ffafd6);
+      --card: rgba(255,255,255,0.95);
+      --pink1:#ff7ccf; --pink2:#ff4fa3; --accent:#ff2e86;
+      --text:#330022;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Poppins',system-ui,Arial;-webkit-font-smoothing:antialiased}
+    body{
+      background: var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      padding-bottom:60px;
+      overflow-x:hidden;
+    }
+
+    /* top controls */
+    .home-btn{
+      position:fixed;left:14px;top:14px;background:linear-gradient(90deg,var(--pink2),var(--pink1));
+      color:#fff;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700;z-index:999;
+      box-shadow:0 10px 30px rgba(255,0,119,0.12);display:inline-block;
+    }
+
+    .wrap{max-width:880px;margin:28px auto;padding:18px;position:relative;z-index:2}
+    .song-row{ text-align:center; margin-bottom:12px; }
+
+    .cover {
+      width:150px;height:150px;border-radius:12px;object-fit:cover;box-shadow:0 12px 40px rgba(0,0,0,0.12);display:block;margin:10px auto;
+    }
+    .controls{ display:flex; gap:10px; justify-content:center; margin-top:8px; }
+    .btn{ padding:10px 16px; border-radius:10px; border:none; cursor:pointer; font-weight:700; color:#fff; }
+    .play-btn{ background: linear-gradient(90deg,var(--pink2),var(--pink1)); }
+    .pause-btn{ background:#ff2e86; display:none; }
+    .aux-btn{ background:#fff; color:var(--pink2); box-shadow:0 8px 20px rgba(0,0,0,0.06) }
+
+    .card{
+      background:var(--card); border-radius:14px; padding:20px; box-shadow:0 18px 60px rgba(255,0,119,0.08);
+      color:var(--text);
+    }
+    h1{margin:0;font-size:1.6rem;color:var(--pink2);text-align:center}
+    .subtitle{ text-align:center;color:#5a1638;margin-top:6px }
+
+    /* letter area */
+    .letter {
+      margin-top:18px; font-size:1.05rem; line-height:1.7; white-space:pre-wrap;
+      color:#3a0736; min-height:220px;
+    }
+    .controls-row{ display:flex; gap:10px; justify-content:center; margin-top:14px; flex-wrap:wrap }
+
+    /* hearts */
+    .hearts{pointer-events:none;position:fixed;inset:0;z-index:0;overflow:hidden}
+    .heart{position:absolute;font-size:16px;opacity:0.8;animation:float 6.5s linear infinite}
+    @keyframes float{0%{transform:translateY(110vh) scale(.7)}100%{transform:translateY(-20vh) scale(1)}}
+
+    /* footer note */
+    .note{ text-align:center;color:#6b163d; margin-top:10px; font-size:0.95rem }
+
+    @media (max-width:720px){
+      .cover{width:120px;height:120px}
+      .home-btn{left:10px;top:10px}
+      .wrap{padding:12px}
+    }
+  </style>
+</head>
+<body>
+
+  <a class="home-btn" href="index.html">⟵ Home</a>
+
+  <div class="wrap">
+    <div style="text-align:center;">
+      <h1>A Letter For Abeeha</h1>
+      <div class="subtitle">Read it slowly… this is everything I wanted to say. ❤️</div>
+    </div>
+
+
+
+    <!-- HASEEN song -->
+    <div class="song-row">
+      <img src="assets/images/haseen.png" alt="HASEEN cover" class="cover" id="jogiCover" />
+      <div class="controls">
+        <button id="jogiPlay" class="btn play-btn">Play HASEEN ❤️</button>
+        <button id="jogiPause" class="btn pause-btn">Pause 💔</button>
+      </div>
+      <audio id="jogiAudio" src="assets/images/music/HASEEN.mp3" preload="none"></audio>
+    </div>
+
+    <div class="card">
+      <div class="letter" id="letter">
+        <!-- initial blank — filled by JS typewriter -->
+      </div>
+
+      <div class="controls-row">
+        <button id="replayType" class="btn aux-btn">Replay Typewriter</button>
+      </div>
+
+      <div class="note">Long distance can't take away what I feel — every line here is a promise and a memory. 💌</div>
+    </div>
+  </div>
+
+  <div class="hearts" id="heartLayer" aria-hidden="true"></div>
+
+<script>
+  // ====== The final letter text (ultra-cute, emotional) ======
+  const LETTER_TEXT = `My sweetest Abeeha… ❤️
+
+I don’t know how to explain this properly, but you feel like the calmest part of my life. Even when we’re far, you still reach me — in the middle of a loud day, in the quiet moments at night, and in those soft corners of my heart I never let anyone enter. You came without forcing anything, and suddenly every space inside me felt warmer.
+
+You’re the softness I look forward to, the comfort I carry around, and the peace I run back to again and again. Every reply from you feels like a little hug across the distance… every “hmm”, every “oh” and every tiny message stays with me longer than you think. 💕😭
+
+And Abeeha…
+I love you more than I say, and I try to show it in little ways —
+the small things I remember about you,
+the songs I save,
+the moments I replay in my head.
+You are my favourite person to think about,
+my favourite reply to read,
+and my forever comfort…
+my small daily prayer. 💗
+
+Sometimes I catch myself smiling out of nowhere — and it’s always because of something you said, something you felt, something that reminded me of you. You touch parts of me I never show the world. You make me want to be better… softer… more patient… because you deserve the best version of me.
+
+I love your kindness, your shyness, your laugh, your random little reactions. I love how you make me feel safe without even trying. I love how even in distance, you make love feel real and gentle.
+
+And Abeeha…
+I promise I’ll stay.
+I promise I’ll listen.
+I promise I’ll be yours in every quiet way that matters.
+I promise I’ll never let you feel alone in this distance.
+I promise to keep choosing you — softly, consistently, honestly.
+
+Someday we will look back at this distance and smile… because we survived it together.
+Until that day comes, in every message, every moment, every night when you think of me—
+
+I’m with you.
+In all ways that matter. 💌✨
+
+Always yours,
+Dushyant ❤️🌍`;
+
+  // ====== Typewriter ======
+  const letterEl = document.getElementById('letter');
+  function typeLetter(speed=26){
+    letterEl.textContent = '';
+    let i = 0;
+    function step(){
+      if(i <= LETTER_TEXT.length){
+        letterEl.textContent = LETTER_TEXT.slice(0,i) + (i % 2 ? '|' : '');
+        i++;
+        setTimeout(step, speed);
+      } else {
+        letterEl.textContent = LETTER_TEXT;
+      }
+    }
+    step();
+  }
+  // start typing on load
+  window.addEventListener('load', ()=> typeLetter(24) );
+
+  // replay button
+  document.getElementById('replayType').addEventListener('click', ()=> typeLetter(20));
+
+  // ====== Page song controls (play / pause) ======
+  const audio = document.getElementById('letterAudio');
+  const play = document.getElementById('letterPlay');
+  const pause = document.getElementById('letterPause');
+  const cover = document.getElementById('letterCover');
+
+  play.addEventListener('click', ()=>{
+    if(!audio.src) audio.src = 'assets/images/music/LetterSong.mp3';
+    audio.play().catch(()=>{});
+    play.style.display = 'none';
+    pause.style.display = 'inline-block';
+  });
+  pause.addEventListener('click', ()=>{
+    audio.pause();
+    pause.style.display = 'none';
+    play.style.display = 'inline-block';
+  });
+
+  // HASEEN song controls
+  const jogiAudio = document.getElementById('jogiAudio');
+  const jogiPlay = document.getElementById('jogiPlay');
+  const jogiPause = document.getElementById('jogiPause');
+
+  jogiPlay.addEventListener('click', ()=>{
+    if(!jogiAudio.src) jogiAudio.src = 'assets/images/music/HASEEN.mp3';
+    jogiAudio.play().catch(()=>{});
+    jogiPlay.style.display = 'none';
+    jogiPause.style.display = 'inline-block';
+  });
+  jogiPause.addEventListener('click', ()=>{
+    jogiAudio.pause();
+    jogiPause.style.display = 'none';
+    jogiPlay.style.display = 'inline-block';
+  });
+
+  // safety: if cover image missing, use placeholder
+  (function checkCover(){
+    const img = new Image();
+    img.onload = ()=>{};
+    img.onerror = ()=> {
+      cover.src = 'assets/images/music/placeholder.png';
+    };
+    img.src = cover.src;
+  })();
+
+  // ====== Copy & Download letter ======
+  document.getElementById('copyBtn').addEventListener('click', async ()=>{
+    try{
+      await navigator.clipboard.writeText(LETTER_TEXT);
+      const btn = document.getElementById('copyBtn');
+      btn.textContent = 'Copied ✓';
+      setTimeout(()=> btn.textContent = 'Copy Letter', 1500);
+    }catch(e){
+      alert('Copy failed — you can select the text and copy manually.');
+    }
+  });
+
+  document.getElementById('downloadBtn').addEventListener('click', ()=>{
+    const blob = new Blob([LETTER_TEXT], {type:'text/plain;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'For_Abeeha_Letter.txt';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  });
+
+  // ====== lightweight hearts ======
+  (function hearts(){
+    const layer = document.getElementById('heartLayer');
+    if(!layer) return;
+    console.log('hearts script running');
+    const emojis = ['❤️', '🫶', '🌹', '💐', '💗', '😗'];
+    function createHeart(){
+      console.log('creating heart');
+      const h = document.createElement('div');
+      h.className = 'heart';
+      h.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      console.log('emoji:', h.innerHTML);
+      h.style.left = Math.random()*100 + 'vw';
+      h.style.fontSize = (16 + Math.random()*24) + 'px';
+      h.style.opacity = 0.7 + Math.random()*0.3;
+      h.style.animationDuration = (5 + Math.random()*4) + 's';
+      layer.appendChild(h);
+      setTimeout(()=> h.remove(), 9000);
+    }
+    // initial little sprinkling
+    for(let i=0;i<6;i++) setTimeout(createHeart, i*160);
+    setInterval(createHeart, 1200);
+  })();
+
+  // ====== small accessibility: pause audio when navigating away ======
+  window.addEventListener('pagehide', ()=> audio.pause());
+  window.addEventListener('visibilitychange', ()=> { if(document.hidden) audio.pause(); });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Best replies — Abeeha ❤️</title>
+
+  <style>
+    :root{
+      --bg:#ffb6d9; --card:rgba(255,255,255,0.12);
+      --accent:#ff4fa3; --white:#fff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family:'Poppins',system-ui,Arial;background:var(--bg);color:var(--white);
+      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+    }
+    h1{text-align:center;padding:18px 12px;margin:0;font-size:1.9rem;text-shadow:0 6px 20px rgba(255,0,119,0.12)}
+    .container{max-width:1000px;margin:14px auto;padding:12px}
+
+    .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .card{
+      position:relative;background:var(--card);padding:12px;border-radius:14px;backdrop-filter:blur(6px);
+      box-shadow:0 10px 30px rgba(255,0,119,0.12);
+      transition:transform .22s,box-shadow .22s;overflow:visible
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(255,0,119,0.22)}
+
+    .img-wrap{
+      width:100%;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(180deg,rgba(0,0,0,0.04),rgba(0,0,0,0.06));
+      border-radius:10px;overflow:hidden;
+    }
+    .img-wrap img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+
+    .caption{margin-top:10px;text-align:center;font-size:0.98rem;color:rgba(255,255,255,0.95)}
+
+    .play-sml{
+      position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.95);color:#ff2e86;
+      border:none;padding:8px 10px;border-radius:10px;cursor:pointer;font-weight:700;z-index:30;
+    }
+    .play-sml.playing{
+      box-shadow:0 10px 26px rgba(255,0,119,0.25);transform:scale(1.06);
+    }
+
+    .modal{
+      position:fixed;left:0;top:0;right:0;bottom:0;display:flex;align-items:center;
+      justify-content:center;background:rgba(0,0,0,0.6);z-index:60;padding:20px;
+      opacity:0;pointer-events:none;transition:opacity .2s;
+    }
+    .modal.open{opacity:1;pointer-events:auto}
+
+    .modal-inner{
+      max-width:960px;width:100%;background:#fff;border-radius:14px;overflow:hidden;
+      display:flex;gap:0;flex-wrap:wrap;
+    }
+    .modal-left{
+      flex:1 1 60%;display:flex;align-items:center;justify-content:center;background:#111;padding:14px;
+    }
+    .modal-left img{max-width:100%;height:auto;border-radius:8px;display:block}
+
+    .modal-right{padding:18px;background:linear-gradient(180deg,#fff,#fff9);color:#222;flex:1 1 40%}
+    .modal-right h3{margin:0 0 8px}
+
+    .close-btn{
+      position:absolute;right:18px;top:18px;background:var(--accent);color:#fff;border:none;
+      padding:8px 12px;border-radius:10px;cursor:pointer;z-index:80;
+    }
+
+    /* SECRET PLACEHOLDER */
+    .secret-placeholder{
+      display:flex;align-items:center;justify-content:center;
+      height:100%;gap:10px;flex-direction:column;color:rgba(255,255,255,0.95)
+    }
+    .reveal-btn{
+      background:linear-gradient(90deg,var(--accent),#ff7bb3);border:none;padding:10px 14px;
+      border-radius:12px;color:#fff;font-weight:700;cursor:pointer;
+      box-shadow:0 10px 30px rgba(255,0,119,0.18)
+    }
+
+    .surprises{
+      margin-top:28px;padding-top:10px;border-top:1px dashed rgba(255,255,255,0.06);
+    }
+    .surprises h2{
+      color:#fff;margin:12px 0;font-size:1.2rem;text-align:center;
+    }
+
+    /* SECRET FADE ANIMATION */
+    .secret-placeholder,
+    .img-wrap img.revealing {
+      transition: opacity .6s ease, transform .6s cubic-bezier(.2,.9,.3,1);
+      will-change: opacity, transform;
+    }
+    .secret-placeholder.fade-out {
+      opacity: 0;
+      transform: scale(.98);
+    }
+    .img-wrap img.revealing {
+      opacity: 0;
+      transform: scale(.98);
+    }
+    .img-wrap img.revealing.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* HOME BUTTON */
+    .home-btn{
+      position:fixed;left:14px;top:14px;background:linear-gradient(90deg,#ff4fa3,#ff7ccf);
+      color:#fff;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700;
+      z-index:9999;box-shadow:0 10px 30px rgba(255,0,119,0.18);
+    }
+    .home-btn:active{transform:scale(.97)}
+  </style>
+</head>
+
+<body>
+
+  <!-- HOME BUTTON -->
+  <a href="index.html" class="home-btn">⟵ Home</a>
+
+  <div class="container">
+    <h1>Your Best Replies — Abeeha ❤️</h1>
+
+    <div class="grid" id="mainGrid">
+
+      <!-- 1 -->
+      <div class="card" data-img="assets/images/1.jpg" data-caption="Janab… your trust is my biggest comfort. I keep it close to my heart. 🥺💞" data-song="assets/images/music/DilLaaJoHaalHai.mp3">
+        <button class="play-sml">♪</button>
+        <div class="img-wrap"><img src="assets/images/1.jpg"></div>
+        <div class="caption">Janab… your trust is my biggest comfort. 🥺💞</div>
+      </div>
+
+      <!-- 3 -->
+      <div class="card" data-img="assets/images/3.jpg" data-caption="You won my heart that day — I still remember every word. 🥺❤️" data-song="assets/images/music/Raabta.mp3">
+        <button class="play-sml">♪</button>
+        <div class="img-wrap"><img src="assets/images/3.jpg"></div>
+        <div class="caption">You won my heart that day — still melts me. 🥺❤️</div>
+      </div>
+
+      <!-- 5 -->
+      <div class="card" data-img="assets/images/5.jpg" data-caption="When you say ‘I will listen’ — my world feels safe. 💕" data-song="assets/images/music/MaulaMereMaula.mp3">
+        <button class="play-sml">♪</button>
+        <div class="img-wrap"><img src="assets/images/5.jpg"></div>
+        <div class="caption">When you say “I will listen” — it heals everything. 💕</div>
+      </div>
+
+      <!-- 6 -->
+      <div class="card" data-img="assets/images/6.jpg" data-caption="You said ‘we won’ — and my heart fell for you again. ❤️🔥" data-song="assets/images/music/Palat-TeraHeroldharHai.mp3">
+        <button class="play-sml">♪</button>
+        <div class="img-wrap"><img src="assets/images/6.jpg"></div>
+        <div class="caption">You said “I won” — and I fell again. ❤️🔥</div>
+      </div>
+
+      <!-- 7 -->
+      <div class="card" data-img="assets/images/7.jpg" data-caption="Now I am Your Mister Lover officaly. ❤️" data-song="assets/images/music/HASEEN.mp3">
+        <button class="play-sml">♪</button>
+        <div class="img-wrap"><img src="assets/images/7.jpg"></div>
+        <div class="caption">Now I am Your Mister Lover officaly. ❤️</div>
+      </div>
+
+    </div>
+
+    <!-- SURPRISE SECTION -->
+    <section class="surprises">
+      <h2>Surprises — Tap to see what’s inside ✨</h2>
+
+      <div class="grid">
+
+        <!-- Secret 2 -->
+        <div class="card secret" data-img="assets/images/2.jpg" data-caption="Batao kitna pyyar karte hoo? 😭💗" data-song="assets/images/music/DoYouKnow.mp3">
+          <button class="play-sml">♪</button>
+          <div class="img-wrap">
+            <div class="secret-placeholder">
+              <div>🔒 Secret</div>
+              <button class="reveal-btn">Tap to reveal</button>
+            </div>
+          </div>
+          <div class="caption" style="opacity:0;">Hidden memory</div>
+        </div>
+
+        <!-- Secret 4 -->
+        <div class="card secret" data-img="assets/images/4.jpg" data-caption="Yeh loo, jaldi lelo — koi dak le lega jaldii. 🥰" data-song="assets/images/music/EkDinAapYun.mp3">
+          <button class="play-sml">♪</button>
+          <div class="img-wrap">
+            <div class="secret-placeholder">
+              <div>🔒 Secret</div>
+              <button class="reveal-btn">Tap to reveal</button>
+            </div>
+          </div>
+          <div class="caption" style="opacity:0;">Hidden memory</div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-inner">
+      <button class="close-btn" id="modalClose">Close</button>
+      <div class="modal-left">
+        <img id="modalImg">
+      </div>
+      <div class="modal-right">
+        <h3 id="modalTitle">Sweet memory</h3>
+        <p id="modalCap"></p>
+      </div>
+    </div>
+  </div>
+
+  <audio id="audioPlayer"></audio>
+
+<script>
+const cards = document.querySelectorAll('.card');
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+const modalCap = document.getElementById('modalCap');
+const modalClose = document.getElementById('modalClose');
+const audio = document.getElementById('audioPlayer');
+
+function playSongFor(src, btn){
+  if(!src) return;
+  if(audio.src !== src) audio.src = src;
+  audio.play().catch(()=>{});
+  document.querySelectorAll('.play-sml').forEach(x=>x.classList.remove('playing'));
+  if(btn) btn.classList.add('playing');
+}
+
+cards.forEach(card=>{
+  const imgPath = card.dataset.img;
+  const caption = card.dataset.caption;
+  const song = card.dataset.song;
+  const musicBtn = card.querySelector('.play-sml');
+
+  // play button
+  musicBtn.addEventListener('click', e=>{
+    e.stopPropagation();
+    playSongFor(song, musicBtn);
+  });
+
+  // secret reveal
+  if(card.classList.contains('secret')){
+    const revealBtn = card.querySelector('.reveal-btn');
+    const imgWrap = card.querySelector('.img-wrap');
+    const captionEl = card.querySelector('.caption');
+
+    revealBtn.addEventListener('click', e=>{
+      e.stopPropagation();
+
+      const placeholder = card.querySelector('.secret-placeholder');
+      if(placeholder) placeholder.classList.add('fade-out');
+
+      imgWrap.innerHTML = '<img class="revealing" src="'+imgPath+'">';
+      const img = imgWrap.querySelector('img.revealing');
+
+      requestAnimationFrame(()=>{
+        setTimeout(()=>{
+          img.classList.add('show');
+          setTimeout(()=>{
+            captionEl.textContent = caption;
+            captionEl.style.opacity = 1;
+            card.classList.remove('secret');
+          }, 380);
+        },10);
+      });
+
+      playSongFor(song, musicBtn);
+    });
+
+    return;
+  }
+
+  // normal card click → modal
+  card.addEventListener('click', ()=>{
+    modalImg.src = imgPath;
+    modalCap.textContent = caption;
+    modal.classList.add('open');
+  });
+});
+
+modalClose.addEventListener('click', ()=> modal.classList.remove('open'));
+modal.addEventListener('click', e=>{ if(e.target===modal) modal.classList.remove('open'); });
+
+audio.addEventListener('ended', ()=> document.querySelectorAll('.play-sml').forEach(x=>x.classList.remove('playing')));
+audio.addEventListener('pause', ()=> document.querySelectorAll('.play-sml').forEach(x=>x.classList.remove('playing')));
+</script>
+
+</body>
+</html>

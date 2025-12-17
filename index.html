@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You ❤️</title>
+
+  <style>
+    /* ---------- Base / layout ---------- */
+    :root{
+      --pink-1: #ff9ecb;
+      --pink-2: #ff5fa8;
+      --accent: #ff4d94;
+      --card-bg: rgba(0,0,0,0.28);
+      --glass: rgba(255,255,255,0.06);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;padding:0;font-family:'Poppins',system-ui,Arial;}
+    body{
+      background: url('srk-background.jpg') center/cover no-repeat fixed, #ffb6d9;
+      animation: fadeIn 900ms ease-in-out;
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:block;
+    }
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+    /* container that can scroll on mobile */
+    .container{
+      max-width:820px;
+      margin:40px auto;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.06));
+      border-radius:18px;
+      padding:26px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    }
+
+    h1{font-size:2.25rem;margin:0 0 12px;text-align:center;text-shadow:0 8px 26px rgba(255,0,119,0.12)}
+    .lead {
+      font-size:1.05rem;
+      line-height:1.6;
+      color:#fff;
+      background: var(--card-bg);
+      padding:18px;
+      border-radius:14px;
+      margin: 12px auto 18px;
+    }
+
+    /* song area */
+    .song-row{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:6px;
+    }
+    .song-cover{
+      width:190px;height:190px;border-radius:16px;object-fit:cover;
+      box-shadow: 0 18px 40px rgba(255,0,119,0.12);
+      border: 6px solid rgba(255,255,255,0.03);
+    }
+    .song-meta{
+      max-width:520px;
+      min-width:220px;
+      color:#fff;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      padding:16px;border-radius:12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+    .song-meta strong{display:block;font-size:1.15rem;margin-bottom:8px}
+
+    /* ---------- Pink Play/Pause Buttons (same style as second page) ---------- */
+    .controls { margin-top:12px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+    .play, .pause {
+      background: linear-gradient(90deg, var(--pink-1), var(--pink-2));
+      color: #fff;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(255, 0, 119, 0.35);
+      transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+    }
+    .play:hover, .pause:hover { transform: scale(1.06); box-shadow: 0 10px 30px rgba(255,0,119,0.45); }
+    .play { display:inline-block; }
+    .pause { display:none; }
+
+    /* small helper: responsive */
+    @media (max-width:680px){
+      .container{margin:16px;padding:18px}
+      .song-cover{width:150px;height:150px}
+      h1{font-size:1.7rem}
+      .lead{font-size:1rem}
+    }
+
+    /* floating hearts */
+    .hearts{pointer-events:none;position:fixed;inset:0;z-index:0;overflow:hidden}
+    .heart{position:absolute;font-size:16px;color:var(--pink2);opacity:0.8;animation:float 6.5s linear infinite}
+    @keyframes float{0%{transform:translateY(110vh) scale(.7)}100%{transform:translateY(-20vh) scale(1)}}
+
+    /* nice nav at bottom (keeps file self-contained) */
+    .site-nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+    .site-nav a{
+      display:inline-block;padding:10px 14px;border-radius:12px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;
+      box-shadow:0 8px 22px rgba(255,0,119,0.15);
+      transition:transform .18s ease;
+    }
+    .site-nav a:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 18px 40px rgba(255,0,119,0.22)}
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Welcome Abeeha ❤️</h1>
+
+    <p class="lead">
+      My love Abeeha… 💖✨ Jab bhi main tumhare baare mein sochta hoon na, ek alag hi sakoon sa milta hai. Distance chahe kitni bhi ho, tumhari yaadein mere dil ke itne kareeb hoti hain ki lagta hai jaise tum yahin mere paas ho. 💞🌍 Tumhari har ek baat, har ek hasi, har ek message… sab meri zindagi ka sabse pyaara hissa ban chuka hai. ❤️😭 Tumne jo pyaar diya hai na, woh mere liye duniya ki sabse khoobsurat cheez hai. 💗 Main chahe jitna bhi busy ho jaun, tum mere dimaag aur dil se kabhi nahi nikalti. ✨ Tum ho to sab kuchh accha lagta hai, tumse baat ho jaye to pura din happy ho jata hoon. 😊💓
+      <br><br>
+      Tum meri strength bhi ho, comfort bhi, aur meri life ki sabse precious insan ho. 💕 Aur haan… main tumse bohot bohot bohot zyada pyaar karta hoon, jitna shayad main shabdo mein kabhi bhi explain nahi kar paunga. 😭❤️✨
+    </p>
+
+    <div class="song-row">
+      <img class="song-cover" id="songCover" src="assets/images/Raabta.png" alt="song cover" />
+      <div class="song-meta">
+        <strong id="mainSongTitle">Raabta</strong>
+        <div style="opacity:0.95;margin-bottom:10px">Press play to start this song for you 💗</div>
+
+        <div class="controls">
+          <button class="play">▶ Play</button>
+          <button class="pause">⏸ Pause</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- audio element (keep path exact to your assets folder) -->
+    <audio id="audio" src="assets/images/music/Raabta.mp3" preload="auto"></audio>
+
+    <!-- small site nav (links to other pages) -->
+    <nav class="site-nav" aria-label="site navigation">
+      <a href="page2.html">Why I Love You</a>
+      <a href="page3.html">Our Memories</a>
+      <a href="page4.html">Your Qualities</a>
+      <a href="page5.html">A Letter For You</a>
+      <a href="page6.html">Our Future</a>
+      <a href="page7.html">Best Songs For You</a>
+    </nav>
+  </div>
+
+  <div class="hearts" id="heartLayer" aria-hidden="true"></div>
+
+  <script>
+    // Play / Pause toggle (just like second page)
+    (function(){
+      const audio = document.getElementById("audio");
+      const playBtn = document.querySelector(".play");
+      const pauseBtn = document.querySelector(".pause");
+      const cover = document.getElementById("songCover");
+      const title = document.getElementById("mainSongTitle");
+
+      // Safety: ensure elements exist
+      if(!audio || !playBtn || !pauseBtn) return;
+
+      playBtn.addEventListener("click", () => {
+        audio.play().catch(()=> {
+          // if autoplay/play blocked, still switch visuals and let user manually start
+        });
+        playBtn.style.display = "none";
+        pauseBtn.style.display = "inline-block";
+      });
+
+      pauseBtn.addEventListener("click", () => {
+        audio.pause();
+        pauseBtn.style.display = "none";
+        playBtn.style.display = "inline-block";
+      });
+
+      // reflect audio events (in case audio is paused from OS/media-control)
+      audio.addEventListener("pause", () => {
+        pauseBtn.style.display = "none";
+        playBtn.style.display = "inline-block";
+      });
+      audio.addEventListener("play", () => {
+        playBtn.style.display = "none";
+        pauseBtn.style.display = "inline-block";
+      });
+
+      // (optional) update cover / title if you later add per-section song switching
+    })();
+
+    // floating hearts
+    (function hearts(){
+      const layer = document.getElementById('heartLayer');
+      if(!layer) return;
+      const emojis = ['❤️', '🫶', '🌹', '💐', '💗', '😗'];
+      function createHeart(){
+        const h = document.createElement('div');
+        h.className = 'heart';
+        h.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        h.style.left = Math.random()*100 + 'vw';
+        h.style.fontSize = (12 + Math.random()*18) + 'px';
+        h.style.opacity = 0.45 + Math.random()*0.4;
+        h.style.animationDuration = (5 + Math.random()*4) + 's';
+        layer.appendChild(h);
+        setTimeout(()=> h.remove(), 9000);
+      }
+      // initial little sprinkling
+      for(let i=0;i<6;i++) setTimeout(createHeart, i*160);
+      setInterval(createHeart, 1200);
+    })();
+  </script>
+</body>
+</html>

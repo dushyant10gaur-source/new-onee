@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Your Qualities — Abeeha ❤</title>
+<style>
+  :root{
+    --bg: linear-gradient(180deg,#ffa8d8,#f78dc0);
+    --card: rgba(230, 5, 255, 0.12);
+    --pink1:#ff7ccf; --pink2:#ff4fa3; --accent:#ff2e86;
+    --glass: rgba(255, 0, 191, 0.738);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:'Poppins',system-ui,Arial;-webkit-font-smoothing:antialiased}
+  body{
+    background: var(--bg);
+    color:#ff00b7;
+    padding-bottom:80px;
+    overflow-x:hidden;
+  }
+
+  /* floating hearts background */
+  .hearts{
+    pointer-events:none;
+    position:fixed;inset:0;z-index:0;overflow:hidden;
+  }
+  .heart{
+    position:absolute;font-size:18px;opacity:0.9;animation:floaty 7s linear infinite;
+  }
+  @keyframes floaty{0%{transform:translateY(110vh) scale(.6)}100%{transform:translateY(-20vh) scale(1)}}
+
+  /* top container */
+  .wrap{max-width:980px;margin:26px auto;padding:18px;position:relative;z-index:2}
+  .top{
+    background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
+    border-radius:14px;padding:18px 18px 14px;box-shadow:0 18px 50px rgba(255,0,119,0.12);
+    display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;
+  }
+  .home-btn{
+    position:fixed;left:14px;top:14px;background:linear-gradient(90deg,var(--pink2),var(--pink1));
+    color:white;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700;z-index:9;box-shadow:0 8px 26px rgba(255,0,119,0.22)
+  }
+  h1{margin:0;font-size:1.8rem;color:#620033}
+  .typewriter{font-size:1rem;color:#4b1636;max-width:640px;line-height:1.5;margin-top:8px}
+
+  /* Page song area - styled like page1/page2 */
+  .page-song{
+    text-align:center;
+    margin-top:18px;
+    margin-bottom:18px;
+    z-index:4;
+    position:relative;
+  }
+  .page-song .cover {
+    width:160px;
+    height:160px;
+    object-fit:cover;
+    border-radius:12px;
+    box-shadow:0 12px 36px rgba(0,0,0,0.18);
+    display:inline-block;
+  }
+  .page-song .controls { margin-top:12px; display:flex; gap:10px; justify-content:center; }
+  .song-btn{ padding:10px 18px; border-radius:10px; border:none; font-weight:700; cursor:pointer; color:#fff; }
+  .song-play{ background: linear-gradient(90deg,var(--pink2),var(--pink1)); }
+  .song-pause{ background:#ff2e86; display:none; }
+
+  /* cards grid */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+  .card{
+    background:var(--card);padding:14px;border-radius:14px;backdrop-filter:blur(6px);
+    box-shadow:0 8px 30px rgba(255,0,119,0.08);position:relative;overflow:hidden;
+    transition:transform .22s,box-shadow .22s;
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(255,0,119,0.18)}
+  .qtitle{display:flex;align-items:center;gap:10px;font-weight:700;color:#fff}
+  .qemoji{font-size:20px;transform:translateY(-1px)}
+  .qdesc{margin-top:10px;color:rgba(255,255,255,0.95);font-size:0.98rem}
+  .more{margin-top:10px;display:none;color:rgba(255,255,255,0.95);font-size:0.95rem;opacity:0.95}
+  .card .meter{height:10px;background:rgba(255,255,255,0.06);border-radius:8px;margin-top:12px;overflow:hidden}
+  .card .meter > b{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--pink2),var(--pink1));box-shadow:0 8px 20px rgba(255,0,119,0.12)}
+
+  .toggle{margin-top:12px;display:inline-block;background:transparent;border:1px solid rgba(255,255,255,0.12);padding:8px 10px;border-radius:10px;color:#fff;cursor:pointer;font-weight:700}
+
+  /* floating emoji button */
+  .float-btn{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,var(--pink2),var(--pink1));color:#fff;border:none;padding:14px;border-radius:50%;font-size:22px;z-index:9;box-shadow:0 16px 40px rgba(255,0,119,0.18);cursor:pointer}
+  .float-btn:active{transform:scale(.98)}
+
+  /* promises modal */
+  .modal-wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);z-index:50;opacity:0;pointer-events:none;transition:opacity .18s}
+  .modal-wrap.open{opacity:1;pointer-events:auto}
+  .modal-card{background:#fff;border-radius:12px;padding:18px;max-width:460px;width:92%;box-shadow:0 30px 80px rgba(0,0,0,0.25);color:#330022}
+  .modal-card h3{margin:0 0 8px}
+  .close-modal{background:var(--accent);color:#fff;border:none;padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:700}
+
+  /* nav small at top */
+  .nav{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+  .nav a{background:transparent;padding:8px 10px;border-radius:10px;color:#fff;text-decoration:none;font-weight:700;box-shadow:0 6px 20px rgba(255,0,119,0.06)}
+
+  /* secret placeholder + reveal animation */
+  .secret-placeholder{display:flex;align-items:center;justify-content:center;height:100%;gap:10px;flex-direction:column;color:rgba(255,255,255,0.95)}
+  .reveal-btn{background:linear-gradient(90deg,var(--accent),#ff7bb3);border:none;padding:10px 14px;border-radius:12px;color:#fff;font-weight:700;cursor:pointer;box-shadow:0 10px 30px rgba(255,0,119,0.18)}
+  .secret-placeholder,
+  .img-wrap img.revealing {
+    transition: opacity .6s ease, transform .6s cubic-bezier(.2,.9,.3,1);
+    will-change: opacity, transform;
+  }
+  .secret-placeholder.fade-out { opacity: 0; transform: scale(.98); }
+  .img-wrap img.revealing { opacity: 0; transform: scale(.98); }
+  .img-wrap img.revealing.show { opacity: 1; transform: scale(1); }
+
+  .surprises{margin-top:28px;padding-top:10px;border-top:1px dashed rgba(255,255,255,0.06)}
+  .surprises h2{color:#fff;margin:12px 0;font-size:1.2rem;text-align:center}
+
+  @media (max-width:720px){ .top{flex-direction:column} .typewriter{font-size:0.98rem} h1{font-size:1.4rem} }
+</style>
+</head>
+<body>
+
+  <a class="home-btn" href="index.html">⟵ Home</a>
+
+  <div class="wrap">
+
+    <!-- Page song (placement like page1/page2) -->
+    <div class="page-song" id="pageSongBlock">
+      <!-- use the PNG/JPG cover image here (NOT the mp3) -->
+      <img src="assets/images/maulameremaula.png" alt="Maula Mere Maula cover" class="cover" id="pageSongImg">
+      <div class="controls">
+        <button id="pgPlay" class="song-btn song-play">Play ❤</button>
+        <button id="pgPause" class="song-btn song-pause">Pause 💔</button>
+      </div>
+      <audio id="pgAudio" src="assets/images/music/MaulaMereMaula.mp3" preload="none"></audio>
+    </div>
+
+    <div class="top">
+      <div style="flex:1 1 460px">
+        <h1>Why Abeeha is perfect — (my list)</h1>
+        <div class="typewriter" id="typewriter"></div>
+      </div>
+
+      <div style="min-width:220px">
+        <div style="background:linear-gradient(180deg,rgba(255,255,255,0.98),#fff);padding:12px;border-radius:12px;box-shadow:0 12px 30px rgba(255,0,119,0.08);">
+          <div style="font-weight:800;color:#620033">From — Dushyant</div>
+          <div style="margin-top:8px;color:#6b163d">Abeeha, everything about you is my favourite. I made this list to show how I see you — perfect in every small way.</div>
+        </div>
+        <nav class="nav" style="margin-top:10px">
+          <a href="page2.html">Why I Love You</a>
+          <a href="memories.html">Memories</a>
+          <a href="qualities.html">Your Qualities</a>
+          <a href="letter.html">Letter</a>
+          <a href="future.html">Future</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="grid" id="qualitiesGrid" style="margin-top:18px">
+      <!-- Card template (you can add more) -->
+      <div class="card" data-title="Smile" data-more="Your smile lights up my darkest days. Whenever you smile at me, my heart forgets all worries.">
+        <div class="qtitle"><span class="qemoji">😊</span>Smile</div>
+        <div class="qdesc">Bright, innocent and full of warmth — your smile is my favourite sight.</div>
+        <div class="meter"><b style="width:100%"></b></div>
+        <button class="toggle">Read more</button>
+        <div class="more"></div>
+      </div>
+
+      <div class="card" data-title="Kindness" data-more="You care deeply — for me, for everyone. Your kindness makes me want to be better every day.">
+        <div class="qtitle"><span class="qemoji">🌸</span>Kindness</div>
+        <div class="qdesc">Gentle and true — you always pick others' feelings with your soft heart.</div>
+        <div class="meter"><b style="width:100%"></b></div>
+        <button class="toggle">Read more</button>
+        <div class="more"></div>
+      </div>
+
+      <div class="card" data-title="Replies" data-more="Your replies are little suns — quick, sweet and full of love. Even a single message from you makes my day.">
+        <div class="qtitle"><span class="qemoji">💬</span>Sweet Replies</div>
+        <div class="qdesc">Her messages are the best — always warm and full of love.</div>
+        <div class="meter"><b style="width:100%"></b></div>
+        <button class="toggle">Read more</button>
+        <div class="more"></div>
+      </div>
+
+      <div class="card" data-title="Strength" data-more="You are stronger than you know — you handle everything with a calm courage that amazes me.">
+        <div class="qtitle"><span class="qemoji">💪</span>Strength</div>
+        <div class="qdesc">Soft but strong — your spirit keeps going, even on tough days.</div>
+        <div class="meter"><b style="width:100%"></b></div>
+        <button class="toggle">Read more</button>
+        <div class="more"></div>
+      </div>
+
+      <div class="card" data-title="Laugh" data-more="Your laugh is contagious — the world becomes lighter when you laugh, and I instantly smile with you.">
+        <div class="qtitle"><span class="qemoji">🤣</span>Laugh</div>
+        <div class="qdesc">Genuine and joyful — makes every moment memorable.</div>
+        <div class="meter"><b style="width:100%"></b></div>
+        <button class="toggle">Read more</button>
+        <div class="more"></div>
+      </div>
+
+      <div class="card" data-title="Care" data-more="You make me feel cared for in small ways that mean everything — your little gestures are huge to me.">
+        <div class="qtitle"><span class="qemoji">🫶</span>Care</div>
+        <div class="qdesc">Thoughtful gestures that show you truly care.</div>
+        <div class="meter"><b style="width:100%"></b></div>
+        <button class="toggle">Read more</button>
+        <div class="more"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- floating emoji action -->
+  <button class="float-btn" id="openPromises" aria-label="Promises">💌</button>
+
+  <!-- promises modal -->
+  <div class="modal-wrap" id="modalWrap" aria-hidden="true">
+    <div class="modal-card">
+      <h3>Promises & Little Futures</h3>
+      <p>1. I promise to always listen, and try my best to be there for you — even across distance.</p>
+      <p>2. I promise to keep surprising you with small happy things, and make you smile every week.</p>
+      <p>3. I promise someday we’ll celebrate together — until then, I’ll save all my love for you.</p>
+      <div style="margin-top:12px;text-align:right">
+        <button class="close-modal" id="closePromises">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="hearts" aria-hidden="true" id="heartLayer"></div>
+
+<script>
+  // Typewriter text
+  const lines = [
+    "Abeeha — every little thing you do is perfect to me. Distance can't change how I see you. Here's all the little ways you make my world better — the things I notice, love and promise to never forget. ❤"
+  ];
+  const tw = document.getElementById('typewriter');
+  (function typeLine(i=0, pos=0){
+    if(!tw) return;
+    const txt = lines[i];
+    if(pos <= txt.length){
+      tw.textContent = txt.slice(0,pos) + (pos % 2 ? '|' : '');
+      setTimeout(()=> typeLine(i,pos+1), 30);
+    } else {
+      tw.textContent = txt; // finish
+    }
+  })();
+
+  // LIGHTWEIGHT floating hearts (no lag)
+  (function softHearts(){
+    const layer = document.getElementById('heartLayer');
+    if(!layer) return;
+
+    const emojis = ['❤️', '🫶', '🌹', '💐', '💗', '😗'];
+    function createHeart() {
+      const h = document.createElement('div');
+      h.className = "heart";
+      h.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      h.style.left = Math.random() * 100 + "vw";
+      h.style.fontSize = (16 + Math.random() * 10) + "px";
+      h.style.opacity = 0.45 + Math.random() * 0.35;
+      h.style.animationDuration = (5 + Math.random() * 4) + "s";
+      layer.appendChild(h);
+      setTimeout(()=> h.remove(), 8000);
+    }
+
+    // spawn only 1 heart every 1.2 seconds (very light)
+    setInterval(createHeart, 1200);
+  })();
+
+
+  // Cards: toggle more
+  document.querySelectorAll('.card').forEach(card=>{
+    const more = card.querySelector('.more');
+    const btn = card.querySelector('.toggle');
+    const title = card.dataset.title || '';
+    const moreText = card.dataset.more || '';
+    if(more) more.textContent = ''; // initial empty
+    btn && btn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      if(more.style.display === 'block'){
+        more.style.display = 'none';
+        btn.textContent = 'Read more';
+      } else {
+        more.style.display = 'block';
+        more.style.opacity = '0';
+        more.style.transition = 'opacity .35s';
+        setTimeout(()=> more.style.opacity = '1', 20);
+        more.textContent = moreText;
+        btn.textContent = 'Show less';
+      }
+    });
+
+    // expand on card click (same as button)
+    card.addEventListener('click', ()=>{
+      if(more.style.display !== 'block'){
+        btn.click();
+      }
+    });
+  });
+
+  // Floating promises modal
+  const modalWrap = document.getElementById('modalWrap');
+  document.getElementById('openPromises').addEventListener('click', ()=> {
+    modalWrap.classList.add('open');
+    modalWrap.setAttribute('aria-hidden','false');
+  });
+  document.getElementById('closePromises').addEventListener('click', ()=> {
+    modalWrap.classList.remove('open');
+    modalWrap.setAttribute('aria-hidden','true');
+  });
+
+  // small accessibility: close modal on outside click
+  modalWrap.addEventListener('click', (e)=>{
+    if(e.target === modalWrap){
+      modalWrap.classList.remove('open');
+      modalWrap.setAttribute('aria-hidden','true');
+    }
+  });
+
+  // make hearts appear at page load (gentle)
+  window.addEventListener('load', ()=> {
+    const layer = document.getElementById('heartLayer');
+    for(let i=0;i<6;i++){
+      const el = document.createElement('div');
+      el.className = 'heart';
+      el.style.left = (Math.random()*100)+'vw';
+      el.style.fontSize = (14 + Math.random()*14)+'px';
+      el.style.animationDuration = (5 + Math.random()*6) + 's';
+      el.style.opacity = 0.6 + Math.random()*0.25;
+      el.innerText = '❤';
+      layer.appendChild(el);
+      setTimeout(()=> el.remove(), 11000 + Math.random()*3000);
+    }
+  });
+
+  // Page song controls (Play / Pause) — same pattern as page1/page2
+  const pgAudio = document.getElementById("pgAudio");
+  const pgPlay = document.getElementById("pgPlay");
+  const pgPause = document.getElementById("pgPause");
+  const pageSongImg = document.getElementById("pageSongImg");
+
+  pgPlay.onclick = () => {
+    // ensure audio source exists
+    if(!pgAudio.src) pgAudio.src = "assets/images/music/MaulaMereMaula.mp3";
+    pgAudio.play().catch(()=>{ /* sometimes blocked until user gesture */});
+    pgPlay.style.display = "none";
+    pgPause.style.display = "inline-block";
+  };
+  pgPause.onclick = () => {
+    pgAudio.pause();
+    pgPause.style.display = "none";
+    pgPlay.style.display = "inline-block";
+  };
+
+  // Modal for image preview (reused pattern)
+  const cards = document.querySelectorAll('.card');
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modalImg');
+  const modalCap = document.getElementById('modalCap');
+  const modalClose = document.getElementById('modalClose');
+  const audio = document.getElementById('pgAudio'); // use page audio as global player for memory play
+
+  function playSongFor(src, btn){
+    if(!src) return;
+    // set and play on page audio element
+    if(audio.src !== src) audio.src = src;
+    audio.play().catch(()=>{});
+    document.querySelectorAll('.play-sml').forEach(x=>x.classList.remove('playing'));
+    if(btn) btn.classList.add('playing');
+  }
+
+  cards.forEach(card=>{
+    const imgPath = card.dataset.img;
+    const caption = card.dataset.caption || card.dataset.more || '';
+    const songSrc = card.dataset.song;
+    const musicBtn = card.querySelector('.play-sml');
+
+    // small play button on cards (if present)
+    if(musicBtn){
+      musicBtn.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        playSongFor(songSrc, musicBtn);
+      });
+    }
+
+    // secret reveal (if any)
+    if(card.classList.contains('secret')){
+      const revealBtn = card.querySelector('.reveal-btn');
+      const imgWrap = card.querySelector('.img-wrap');
+      const captionEl = card.querySelector('.caption');
+
+      revealBtn && revealBtn.addEventListener('click', (ev)=>{
+        ev.stopPropagation();
+        const placeholder = card.querySelector('.secret-placeholder');
+        if(placeholder) placeholder.classList.add('fade-out');
+
+        imgWrap.innerHTML = '<img class="revealing" src="'+imgPath+'" alt="secret"/>';
+        const insertedImg = imgWrap.querySelector('img.revealing');
+
+        insertedImg.addEventListener('error', ()=> {
+          captionEl.textContent = caption;
+          captionEl.style.opacity = '1';
+          captionEl.style.pointerEvents = 'auto';
+          card.classList.remove('secret');
+        });
+
+        requestAnimationFrame(()=> {
+          setTimeout(()=> {
+            insertedImg.classList.add('show');
+            setTimeout(()=> {
+              captionEl.textContent = caption;
+              captionEl.style.opacity = '1';
+              captionEl.style.pointerEvents = 'auto';
+              card.classList.remove('secret');
+            }, 420);
+          }, 10);
+        });
+
+        if(songSrc) try { playSongFor(songSrc, musicBtn); } catch(e){}
+      });
+
+      return;
+    }
+
+    // normal card: open modal on click
+    card.addEventListener('click', ()=>{
+      modalImg.src = imgPath || '';
+      modalCap.textContent = caption;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+    });
+  });
+
+  // modal controls
+  modalClose.addEventListener('click', ()=> { modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); modalImg.src=''; });
+  modal.addEventListener('click', (e)=> { if(e.target === modal){ modal.classList.remove('open'); modalImg.src=''; modal.setAttribute('aria-hidden','true'); } });
+
+  // cleanup playing state when audio ends/pauses
+  const globalAudio = document.getElementById('pgAudio');
+  globalAudio.addEventListener('ended', ()=> document.querySelectorAll('.play-sml').forEach(x=>x.classList.remove('playing')));
+  globalAudio.addEventListener('pause', ()=> document.querySelectorAll('.play-sml').forEach(x=>x.classList.remove('playing')));
+</script>
+</body>
+</html>

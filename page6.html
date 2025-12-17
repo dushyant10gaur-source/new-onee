@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Just Us — Abeeha ❤️</title>
+  <style>
+    :root{
+      --bg: linear-gradient(180deg,#fff0f6,#ffd7ec);
+      --card: rgba(255,255,255,0.94);
+      --pink1:#ff7ccf; --pink2:#ff4fa3; --accent:#ff2e86;
+      --text:#ff00b3;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:'Poppins',system-ui,Arial;-webkit-font-smoothing:antialiased}
+    body{
+      background: var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+      padding-bottom:60px;
+    }
+
+    /* top control */
+    .home-btn{
+      position:fixed;left:14px;top:14px;background:linear-gradient(90deg,var(--pink2),var(--pink1));
+      color:#fff;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700;z-index:999;
+      box-shadow:0 10px 30px rgba(255,0,119,0.12);
+    }
+
+    .wrap{max-width:980px;margin:26px auto;padding:18px;position:relative;z-index:2}
+    h1{margin:0;font-size:1.6rem;color:var(--pink2);text-align:center}
+    .lead{margin-top:8px;text-align:center;color:#6b2a44}
+
+    /* page song */
+    .page-song{ text-align:center; margin:18px 0; }
+    .page-song img{ width:150px; height:150px; object-fit:cover; border-radius:12px; box-shadow:0 12px 32px rgba(0,0,0,0.12); display:block; margin:0 auto;}
+    .song-controls{ display:flex; gap:10px; justify-content:center; margin-top:12px}
+    .song-btn{ padding:10px 16px; border-radius:10px; border:none; font-weight:700; cursor:pointer; color:#fff }
+    .song-play{ background: linear-gradient(90deg,var(--pink2),var(--pink1)); }
+    .song-pause{ background:#ff2e86; display:none }
+
+    /* grid */
+    .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:18px}
+    .card{ background:var(--card); padding:18px; border-radius:14px; box-shadow:0 12px 40px rgba(255,0,119,0.08); position:relative; overflow:hidden }
+    .card h3{margin:0 0 8px;color:#5b1535}
+    .card p{margin:0;color:#3a1329;line-height:1.6}
+
+    /* flirty list */
+    .flirty{margin-top:10px;list-style:none;padding:0}
+    .flirty li{padding:10px;border-radius:10px;background:linear-gradient(90deg,#fff,#fff8);margin:10px 0;color:#3b1026;box-shadow:0 8px 22px rgba(255,0,119,0.03)}
+
+    /* secret */
+    .secret-wrap{ display:flex; align-items:center; justify-content:center; height:220px; border-radius:12px; background:linear-gradient(180deg,#fff,#fff9); position:relative; overflow:hidden }
+    .secret-placeholder{ display:flex; flex-direction:column; align-items:center; gap:8px; color:var(--pink2) }
+    .reveal-btn{ padding:10px 14px;border-radius:12px;border:none;background:linear-gradient(90deg,var(--accent),#ff7bb3);color:#fff;font-weight:700;cursor:pointer; box-shadow:0 12px 30px rgba(255,0,119,0.12) }
+    .secret-wrap img{ max-width:100%; max-height:100%; object-fit:cover; border-radius:10px; opacity:0; transform:scale(.98); transition:opacity .6s ease,transform .6s cubic-bezier(.2,.9,.3,1) }
+    .secret-wrap img.show{ opacity:1; transform:scale(1) }
+
+    /* little hint text style */
+    .hint{ font-style:italic; color:#5b2b44; margin-top:8px; opacity:0.95 }
+
+    /* sparkle (subtle) */
+    .sparkle { position:fixed; inset:0; pointer-events:none; z-index:0; background-image: radial-gradient(circle at 15% 10%, rgba(255,255,255,0.06), transparent 8%), radial-gradient(circle at 85% 80%, rgba(255,255,255,0.045), transparent 6%); mix-blend-mode:screen; opacity:0.9 }
+
+    /* hearts (gentle) */
+    .hearts{pointer-events:none;position:fixed;inset:0;z-index:0;overflow:hidden}
+    .heart{position:absolute;font-size:16px;opacity:0.8;animation:float 6.5s linear infinite}
+    @keyframes float{0%{transform:translateY(110vh) scale(.7)}100%{transform:translateY(-20vh) scale(1)}}
+
+    @media (max-width:720px){
+      .secret-wrap{ height:180px }
+      .page-song img{ width:130px; height:130px }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="home-btn" href="index.html">⟵ Home</a>
+
+  <div class="sparkle" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <h1>Just Us — Abeeha ❤️</h1>
+    <div class="lead">Little lines for right now — flirty, deep, soft. No heavy talk, only feelings.</div>
+
+   
+    <!-- HASEEN song -->
+    <div class="page-song">
+      <img id="jogiCover" src="assets/images/haseen.png" alt="HASEEN cover" />
+      <div class="song-controls">
+        <button id="jogiPlay" class="song-btn song-play">Play HASEEN ❤️</button>
+        <button id="jogiPause" class="song-btn song-pause">Pause 💔</button>
+      </div>
+      <audio id="jogiAudio" src="assets/images/music/HASEEN.mp3" preload="none"></audio>
+    </div>
+
+    <div class="grid">
+
+      <!-- Little flirty hints -->
+      <div class="card">
+        <h3>Flirty things I love</h3>
+        <p>Just small notes — playful, honest, a little cheeky, but all true.</p>
+        <ul class="flirty">
+          <li>You don’t even try, and yet you make me fall a little more every single day.</li>
+          <li>One message from you and my whole day gets a glow — dangerously distracting (in the best way).</li>
+          <li>Sometimes I rehearse what I’ll say to you, and then I smile like an idiot when you reply.</li>
+        </ul>
+        <div class="hint">(— yes, you make me blush. A lot.)</div>
+      </div>
+
+      <!-- Deep & tender lines -->
+      <div class="card">
+        <h3>Deep lines — things that stay</h3>
+        <p>Quiet, true feelings that live in small places of my day.</p>
+        <ul class="flirty">
+          <li>There are parts of me you touch without knowing — and they feel safer because of you.</li>
+          <li>Sometimes I find myself smiling for no reason, and then I realise it’s because of you.</li>
+          <li>You feel like a warm thought I carry — simple, steady, and quietly important.</li>
+        </ul>
+        <div class="hint">(— you matter in ways words try to reach.)</div>
+      </div>
+
+      <!-- Soft hints (no future, just now) -->
+      <div class="card">
+        <h3>Soft hints I give</h3>
+        <p>Small, respectful nudges — things that say I care without loud promises.</p>
+        <ul class="flirty">
+          <li>If you ever wonder, know this: I notice you, in all the little ways.</li>
+          <li>If you catch me smiling, it’s probably because of a memory of you.</li>
+          <li>I hope you let yourself be seen — you’re more beautiful than you think.</li>
+        </ul>
+        <div class="hint">(— these are only for your eyes.)</div>
+      </div>
+
+      <!-- Secret (hidden) -->
+      <div class="card">
+        <h3>A tiny secret — tap to reveal ✨</h3>
+        <div class="secret-wrap" id="secretWrap">
+          <div class="secret-placeholder" id="secretPlaceholder">
+            <div style="font-size:1.05rem;color:var(--pink2)">🔒 Hidden moment</div>
+            <div style="font-size:0.95rem;color:#6b163d">A small, flirty memory — just press and smile.</div>
+            <button class="reveal-btn" id="revealBtn">Tap to reveal</button>
+          </div>
+          <!-- image inserted here by JS -->
+        </div>
+      </div>
+
+    </div> <!-- grid end -->
+  </div> <!-- wrap end -->
+
+  <div class="hearts" id="heartLayer" aria-hidden="true"></div>
+
+<script>
+  // ---------- Page song ----------
+  const pageAudio = document.getElementById('pageAudio');
+  const pagePlay = document.getElementById('pagePlay');
+  const pagePause = document.getElementById('pagePause');
+  const pageCover = document.getElementById('pageCover');
+
+  pagePlay.addEventListener('click', ()=>{
+    if(!pageAudio.src) pageAudio.src = 'assets/images/music/ForYou.mp3';
+    pageAudio.play().catch(()=>{});
+    pagePlay.style.display = 'none';
+    pagePause.style.display = 'inline-block';
+  });
+  pagePause.addEventListener('click', ()=>{
+    pageAudio.pause();
+    pagePause.style.display = 'none';
+    pagePlay.style.display = 'inline-block';
+  });
+
+  // HASEEN song
+  const jogiAudio = document.getElementById('jogiAudio');
+  const jogiPlay = document.getElementById('jogiPlay');
+  const jogiPause = document.getElementById('jogiPause');
+
+  jogiPlay.addEventListener('click', ()=>{
+    if(!jogiAudio.src) jogiAudio.src = 'assets/images/music/HASEEN.mp3';
+    jogiAudio.play().catch(()=>{});
+    jogiPlay.style.display = 'none';
+    jogiPause.style.display = 'inline-block';
+  });
+  jogiPause.addEventListener('click', ()=>{
+    jogiAudio.pause();
+    jogiPause.style.display = 'none';
+    jogiPlay.style.display = 'inline-block';
+  });
+
+  // safety cover fallback
+  (function checkCover(){
+    const img = new Image();
+    img.onload = ()=>{};
+    img.onerror = ()=> { pageCover.src = 'assets/images/music/placeholder.png'; };
+    img.src = pageCover.src;
+  })();
+
+  // ---------- Secret reveal ----------
+  const revealBtn = document.getElementById('revealBtn');
+  const secretWrap = document.getElementById('secretWrap');
+  const secretPlaceholder = document.getElementById('secretPlaceholder');
+
+  revealBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    // fade placeholder
+    secretPlaceholder.classList.add('fade-out');
+    // insert image (change path if you want)
+    const img = document.createElement('img');
+    img.src = 'assets/images/secret/secret1.jpg'; // change if different
+    img.alt = 'memory';
+    img.onload = () => {
+      secretWrap.appendChild(img);
+      requestAnimationFrame(()=> setTimeout(()=> img.classList.add('show'), 10));
+      // add a flirty caption under it
+      setTimeout(()=> {
+        const caption = document.createElement('div');
+        caption.style.marginTop = '10px';
+        caption.style.textAlign = 'center';
+        caption.style.color = '#6b163d';
+        caption.innerHTML = "That smile — the one you think I don't notice. ❤";
+        secretWrap.appendChild(caption);
+      }, 420);
+    };
+    img.onerror = () => {
+      const fallback = document.createElement('div');
+      fallback.style.color = '#6b163d';
+      fallback.style.textAlign = 'center';
+      fallback.textContent = "Image not found — but the memory is in my heart ❤";
+      secretWrap.appendChild(fallback);
+    };
+
+    // optional: play a small secret sound
+    try {
+      pageAudio.pause();
+      pageAudio.src = 'assets/images/music/SecretTune.mp3'; // change if needed
+      pageAudio.play().catch(()=>{});
+      pagePlay.style.display = 'none';
+      pagePause.style.display = 'inline-block';
+    } catch(e){}
+    // remove placeholder after a short delay
+    setTimeout(()=> secretPlaceholder.remove(), 600);
+  });
+
+  // ---------- subtle hearts (light) ----------
+  (function hearts(){
+    const layer = document.getElementById('heartLayer');
+    console.log('hearts script running page6');
+    const emojis = ['❤️', '🫶', '🌹', '💐', '💗', '😗'];
+    function spawn(){
+      console.log('spawning emoji');
+      const el = document.createElement('div');
+      el.className = 'heart';
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      console.log('emoji:', el.innerHTML);
+      el.style.left = Math.random()*100 + 'vw';
+      el.style.fontSize = (16 + Math.random()*24) + 'px';
+      el.style.opacity = 0.7 + Math.random()*0.3;
+      el.style.animationDuration = (5 + Math.random()*4) + 's';
+      layer.appendChild(el);
+      setTimeout(()=> el.remove(), 9000);
+    }
+    // initial few
+    for(let i=0;i<4;i++) setTimeout(spawn, i*160);
+    setInterval(spawn, 1600);
+  })();
+
+  // pause audio on leave
+  window.addEventListener('pagehide', ()=> pageAudio.pause());
+  window.addEventListener('visibilitychange', ()=> { if(document.hidden) pageAudio.pause(); });
+</script>
+</body>
+</html>
+
