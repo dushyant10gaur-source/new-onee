@@ -88,7 +88,7 @@
         <button id="jogiPlay" class="btn play-btn">Play HASEEN ❤️</button>
         <button id="jogiPause" class="btn pause-btn">Pause 💔</button>
       </div>
-      <audio id="jogiAudio" src="assets/images/music/HASEEN.mp3" preload="none"></audio>
+      <audio id="jogiAudio" src="assets/images/music/HASEEN.mp3" preload="metadata"></audio>
     </div>
 
     <div class="card">
@@ -189,9 +189,15 @@ Dushyant ❤️🌍`;
   const jogiPlay = document.getElementById('jogiPlay');
   const jogiPause = document.getElementById('jogiPause');
 
+  // Debug: add event listeners
+  jogiAudio.addEventListener('error', (e) => console.log('Audio load error:', e));
+  jogiAudio.addEventListener('canplay', () => console.log('Audio can play'));
+  jogiAudio.addEventListener('loadedmetadata', () => console.log('Audio metadata loaded'));
+
   jogiPlay.addEventListener('click', ()=>{
+    console.log('Play button clicked');
     if(!jogiAudio.src) jogiAudio.src = 'assets/images/music/HASEEN.mp3';
-    jogiAudio.play().catch(()=>{});
+    jogiAudio.play().then(() => console.log('Audio playing')).catch((err) => console.log('Play failed:', err));
     jogiPlay.style.display = 'none';
     jogiPause.style.display = 'inline-block';
   });
