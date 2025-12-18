@@ -84,14 +84,14 @@
     <div class="lead">Little lines for right now — flirty, deep, soft. No heavy talk, only feelings.</div>
 
    
-    <!-- Palat Tera Hero Idhar Hai song -->
+    <!-- HASEEN song -->
     <div class="page-song">
-      <img id="jogiCover" src="assets/images/mainterahero.png" alt="Palat Tera Hero Idhar Hai cover" />
+      <img id="jogiCover" src="assets/images/haseen.png" alt="HASEEN cover" />
       <div class="song-controls">
-        <button id="jogiPlay" class="song-btn song-play">Play Palat Tera Hero Idhar Hai ❤️</button>
+        <button id="jogiPlay" class="song-btn song-play">Play HASEEN ❤️</button>
         <button id="jogiPause" class="song-btn song-pause">Pause 💔</button>
       </div>
-      <audio id="jogiAudio" src="assets/images/music/Palat-TeraHeroldharHai.mp3" preload="auto"></audio>
+      <audio id="jogiAudio" src="assets/images/music/HASEEN.mp3" preload="auto"></audio>
     </div>
 
     <div class="grid">
@@ -181,7 +181,7 @@
 
   jogiPlay.addEventListener('click', ()=>{
     console.log('Play button clicked');
-    if(!jogiAudio.src) jogiAudio.src = 'assets/images/music/Palat-TeraHeroldharHai.mp3';
+    if(!jogiAudio.src) jogiAudio.src = 'assets/images/music/HASEEN.mp3';
     jogiAudio.play().then(() => console.log('Audio playing')).catch((err) => console.log('Play failed:', err));
     jogiPlay.style.display = 'none';
     jogiPause.style.display = 'inline-block';
