@@ -88,10 +88,10 @@
     <div class="page-song">
       <img id="jogiCover" src="assets/images/mainterahero.png" alt="Palat Tera Hero Idhar Hai cover" />
       <div class="song-controls">
-        <button id="jogiPlay" class="song-btn song-play">Play Palat Tera Hero Idhar Hai ❤️</button>
-        <button id="jogiPause" class="song-btn song-pause">Pause 💔</button>
+        <button id="pgPlay" class="song-btn song-play">Play Palat Tera Hero Idhar Hai ❤️</button>
+        <button id="pgPause" class="song-btn song-pause">Pause 💔</button>
       </div>
-      <audio id="jogiAudio" src="assets/images/music/Palat-TeraHeroldharHai.mp3" preload="auto"></audio>
+      <audio id="pgAudio" src="assets/images/music/Palat-TeraHeroldharHai.mp3" preload="auto"></audio>
     </div>
 
     <div class="grid">
@@ -169,27 +169,27 @@
     pagePlay.style.display = 'inline-block';
   });
 
-  // HASEEN song
-  const jogiAudio = document.getElementById('jogiAudio');
-  const jogiPlay = document.getElementById('jogiPlay');
-  const jogiPause = document.getElementById('jogiPause');
+  // Palat Tera Hero Idhar Hai song
+  const pgAudio = document.getElementById('pgAudio');
+  const pgPlay = document.getElementById('pgPlay');
+  const pgPause = document.getElementById('pgPause');
 
   // Debug: add event listeners
-  jogiAudio.addEventListener('error', (e) => console.log('Audio load error:', e));
-  jogiAudio.addEventListener('canplay', () => console.log('Audio can play'));
-  jogiAudio.addEventListener('loadedmetadata', () => console.log('Audio metadata loaded'));
+  pgAudio.addEventListener('error', (e) => console.log('Audio load error:', e));
+  pgAudio.addEventListener('canplay', () => console.log('Audio can play'));
+  pgAudio.addEventListener('loadedmetadata', () => console.log('Audio metadata loaded'));
 
-  jogiPlay.addEventListener('click', ()=>{
+  pgPlay.addEventListener('click', ()=>{
     console.log('Play button clicked');
-    jogiAudio.load(); // Force load
-    jogiAudio.play().then(() => console.log('Audio playing')).catch((err) => console.log('Play failed:', err));
-    jogiPlay.style.display = 'none';
-    jogiPause.style.display = 'inline-block';
+    pgAudio.load(); // Force load
+    pgAudio.play().then(() => console.log('Audio playing')).catch((err) => console.log('Play failed:', err));
+    pgPlay.style.display = 'none';
+    pgPause.style.display = 'inline-block';
   });
-  jogiPause.addEventListener('click', ()=>{
-    jogiAudio.pause();
-    jogiPause.style.display = 'none';
-    jogiPlay.style.display = 'inline-block';
+  pgPause.addEventListener('click', ()=>{
+    pgAudio.pause();
+    pgPause.style.display = 'none';
+    pgPlay.style.display = 'inline-block';
   });
 
   // safety cover fallback
