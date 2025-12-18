@@ -151,24 +151,6 @@
   <div class="hearts" id="heartLayer" aria-hidden="true"></div>
 
 <script>
-  // ---------- Page song ----------
-  const pageAudio = document.getElementById('pageAudio');
-  const pagePlay = document.getElementById('pagePlay');
-  const pagePause = document.getElementById('pagePause');
-  const pageCover = document.getElementById('pageCover');
-
-  pagePlay.addEventListener('click', ()=>{
-    if(!pageAudio.src) pageAudio.src = 'assets/images/music/ForYou.mp3';
-    pageAudio.play().catch(()=>{});
-    pagePlay.style.display = 'none';
-    pagePause.style.display = 'inline-block';
-  });
-  pagePause.addEventListener('click', ()=>{
-    pageAudio.pause();
-    pagePause.style.display = 'none';
-    pagePlay.style.display = 'inline-block';
-  });
-
   // Palat Tera Hero Idhar Hai song
   const pgAudio = document.getElementById('pgAudio');
   const pgPlay = document.getElementById('pgPlay');
