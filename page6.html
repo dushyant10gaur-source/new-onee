@@ -156,17 +156,12 @@
   const pgPlay = document.getElementById('pgPlay');
   const pgPause = document.getElementById('pgPause');
 
-  console.log('pgAudio:', pgAudio);
-  console.log('pgPlay:', pgPlay);
-
   // Debug: add event listeners
   pgAudio.addEventListener('error', (e) => console.log('Audio load error:', e));
   pgAudio.addEventListener('canplay', () => console.log('Audio can play'));
   pgAudio.addEventListener('loadedmetadata', () => console.log('Audio metadata loaded'));
 
   pgPlay.addEventListener('click', ()=>{
-    alert('Play button clicked');
-    console.log('Play button clicked');
     pgAudio.load(); // Force load
     pgAudio.play().then(() => console.log('Audio playing')).catch((err) => console.log('Play failed:', err));
     pgPlay.style.display = 'none';
