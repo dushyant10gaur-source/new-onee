@@ -83,12 +83,12 @@
 
     <!-- HASEEN song -->
     <div class="song-row">
-      <img src="assets/images/haseen.png" alt="HASEEN cover" class="cover" id="jogiCover" />
+      <img src="assets/images/haseen.png" alt="HASEEN cover" class="cover" id="pageSongImg" />
       <div class="controls">
-        <button id="jogiPlay" class="btn play-btn">Play HASEEN ❤️</button>
-        <button id="jogiPause" class="btn pause-btn">Pause 💔</button>
+        <button id="pgPlay" class="song-btn song-play">Play HASEEN ❤️</button>
+        <button id="pgPause" class="song-btn song-pause">Pause 💔</button>
       </div>
-      <audio id="jogiAudio" src="assets/images/music/HASEEN.mp3" preload="metadata"></audio>
+      <audio id="pgAudio" src="assets/images/music/HASEEN.mp3" preload="auto" controls></audio>
     </div>
 
     <div class="card">
@@ -167,14 +167,19 @@ Dushyant ❤️🌍`;
   document.getElementById('replayType').addEventListener('click', ()=> typeLetter(20));
 
   // ====== Page song controls (play / pause) ======
-  const audio = document.getElementById('letterAudio');
-  const play = document.getElementById('letterPlay');
-  const pause = document.getElementById('letterPause');
-  const cover = document.getElementById('letterCover');
+  const audio = document.getElementById('pgAudio');
+  const play = document.getElementById('pgPlay');
+  const pause = document.getElementById('pgPause');
+
+  // Debug: add event listeners
+  audio.addEventListener('error', (e) => console.log('Audio load error:', e));
+  audio.addEventListener('canplay', () => console.log('Audio can play'));
+  audio.addEventListener('loadedmetadata', () => console.log('Audio metadata loaded'));
 
   play.addEventListener('click', ()=>{
-    if(!audio.src) audio.src = 'assets/images/music/LetterSong.mp3';
-    audio.play().catch(()=>{});
+    console.log('Play button clicked');
+    if(!audio.src) audio.src = 'assets/images/music/HASEEN.mp3';
+    audio.play().then(() => console.log('Audio playing')).catch((err) => console.log('Play failed:', err));
     play.style.display = 'none';
     pause.style.display = 'inline-block';
   });
@@ -184,28 +189,7 @@ Dushyant ❤️🌍`;
     play.style.display = 'inline-block';
   });
 
-  // HASEEN song controls
-  const jogiAudio = document.getElementById('jogiAudio');
-  const jogiPlay = document.getElementById('jogiPlay');
-  const jogiPause = document.getElementById('jogiPause');
 
-  // Debug: add event listeners
-  jogiAudio.addEventListener('error', (e) => console.log('Audio load error:', e));
-  jogiAudio.addEventListener('canplay', () => console.log('Audio can play'));
-  jogiAudio.addEventListener('loadedmetadata', () => console.log('Audio metadata loaded'));
-
-  jogiPlay.addEventListener('click', ()=>{
-    console.log('Play button clicked');
-    if(!jogiAudio.src) jogiAudio.src = 'assets/images/music/HASEEN.mp3';
-    jogiAudio.play().then(() => console.log('Audio playing')).catch((err) => console.log('Play failed:', err));
-    jogiPlay.style.display = 'none';
-    jogiPause.style.display = 'inline-block';
-  });
-  jogiPause.addEventListener('click', ()=>{
-    jogiAudio.pause();
-    jogiPause.style.display = 'none';
-    jogiPlay.style.display = 'inline-block';
-  });
 
   // safety: if cover image missing, use placeholder
   (function checkCover(){
