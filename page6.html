@@ -86,7 +86,7 @@
    
     <!-- Palat Tera Hero Idhar Hai song -->
     <div class="page-song">
-      <img id="jogiCover" src="assets/images/mainterahero.png" alt="Palat Tera Hero Idhar Hai cover" />
+      <img id="jogiCover" src="assets/images/Palat-TeraHeroldharHai.png" alt="Palat Tera Hero Idhar Hai cover" />
       <div class="song-controls">
         <button id="pgPlay" class="song-btn song-play">Play Palat Tera Hero Idhar Hai ❤️</button>
         <button id="pgPause" class="song-btn song-pause">Pause 💔</button>
@@ -174,12 +174,16 @@
   const pgPlay = document.getElementById('pgPlay');
   const pgPause = document.getElementById('pgPause');
 
+  console.log('pgAudio:', pgAudio);
+  console.log('pgPlay:', pgPlay);
+
   // Debug: add event listeners
   pgAudio.addEventListener('error', (e) => console.log('Audio load error:', e));
   pgAudio.addEventListener('canplay', () => console.log('Audio can play'));
   pgAudio.addEventListener('loadedmetadata', () => console.log('Audio metadata loaded'));
 
   pgPlay.addEventListener('click', ()=>{
+    alert('Play button clicked');
     console.log('Play button clicked');
     pgAudio.load(); // Force load
     pgAudio.play().then(() => console.log('Audio playing')).catch((err) => console.log('Play failed:', err));
