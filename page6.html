@@ -84,14 +84,14 @@
     <div class="lead">Little lines for right now — flirty, deep, soft. No heavy talk, only feelings.</div>
 
    
-    <!-- HASEEN song -->
+    <!-- Palat Tera Hero Idhar Hai song -->
     <div class="page-song">
-      <img id="jogiCover" src="assets/images/haseen.png" alt="HASEEN cover" />
+      <img id="jogiCover" src="assets/images/mainterahero.png" alt="Palat Tera Hero Idhar Hai cover" />
       <div class="song-controls">
-        <button id="jogiPlay" class="song-btn song-play">Play HASEEN ❤️</button>
+        <button id="jogiPlay" class="song-btn song-play">Play Palat Tera Hero Idhar Hai ❤️</button>
         <button id="jogiPause" class="song-btn song-pause">Pause 💔</button>
       </div>
-      <audio id="jogiAudio" src="assets/images/music/HASEEN.mp3" preload="none"></audio>
+      <audio id="jogiAudio" src="assets/images/music/Palat-TeraHeroldharHai.mp3" preload="none"></audio>
     </div>
 
     <div class="grid">
@@ -175,7 +175,7 @@
   const jogiPause = document.getElementById('jogiPause');
 
   jogiPlay.addEventListener('click', ()=>{
-    if(!jogiAudio.src) jogiAudio.src = 'assets/images/music/HASEEN.mp3';
+    if(!jogiAudio.src) jogiAudio.src = 'assets/images/music/Palat-TeraHeroldharHai.mp3';
     jogiAudio.play().catch(()=>{});
     jogiPlay.style.display = 'none';
     jogiPause.style.display = 'inline-block';
