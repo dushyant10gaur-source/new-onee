@@ -181,7 +181,7 @@
 
   jogiPlay.addEventListener('click', ()=>{
     console.log('Play button clicked');
-    if(!jogiAudio.src) jogiAudio.src = 'assets/images/music/Palat-TeraHeroldharHai.mp3';
+    jogiAudio.load(); // Force load
     jogiAudio.play().then(() => console.log('Audio playing')).catch((err) => console.log('Play failed:', err));
     jogiPlay.style.display = 'none';
     jogiPause.style.display = 'inline-block';
